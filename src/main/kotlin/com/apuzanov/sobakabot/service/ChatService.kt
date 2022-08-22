@@ -1,10 +1,10 @@
-package com.github.djaler.evilbot.service
+package com.apuzanov.sobakabot.service
 
 import com.apuzanov.sobakabot.model.GetOrCreateResult
-import com.github.djaler.evilbot.entity.Chat
-import com.github.djaler.evilbot.entity.ChatHistory
-import com.github.djaler.evilbot.repository.ChatHistoryRepository
-import com.github.djaler.evilbot.repository.ChatRepository
+import com.apuzanov.sobakabot.entity.Chat
+import com.apuzanov.sobakabot.entity.ChatHistory
+import com.apuzanov.sobakabot.repository.ChatHistoryRepository
+import com.apuzanov.sobakabot.repository.ChatRepository
 import dev.inmo.tgbotapi.types.ChatId
 import dev.inmo.tgbotapi.types.chat.PublicChat
 import org.springframework.stereotype.Service

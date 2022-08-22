@@ -1,4 +1,4 @@
-package com.github.djaler.evilbot.utils
+package com.apuzanov.sobakabot.utils
 
 import dev.inmo.tgbotapi.types.UserId
 import dev.inmo.tgbotapi.types.chat.User

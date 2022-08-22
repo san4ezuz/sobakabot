@@ -1,6 +1,6 @@
-package com.github.djaler.evilbot.repository
+package com.apuzanov.sobakabot.repository
 
-import com.github.djaler.evilbot.entity.ChatHistory
+import com.apuzanov.sobakabot.entity.ChatHistory
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import java.time.LocalDateTime

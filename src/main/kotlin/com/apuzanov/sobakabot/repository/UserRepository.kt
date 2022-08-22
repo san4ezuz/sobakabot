@@ -1,6 +1,6 @@
-package com.github.djaler.evilbot.repository
+package com.apuzanov.sobakabot.repository
 
-import com.github.djaler.evilbot.entity.User
+import com.apuzanov.sobakabot.entity.User
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface UserRepository : JpaRepository<User, Int> {

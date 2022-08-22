@@ -1,8 +1,8 @@
-package com.github.djaler.evilbot.handlers.commands
+package com.apuzanov.sobakabot.handlers.commands
 
 import com.apuzanov.sobakabot.handlers.base.CommandHandler
-import com.github.djaler.evilbot.service.ChatService
-import com.github.djaler.evilbot.service.UserService
+import com.apuzanov.sobakabot.service.ChatService
+import com.apuzanov.sobakabot.service.UserService
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.utils.asPublicChat
@@ -12,7 +12,7 @@ import dev.inmo.tgbotapi.types.message.content.TextContent
 import org.springframework.stereotype.Component
 
 @Component
-class DisplayTop10Handler(
+class Top10Handler(
     botInfo: ExtendedBot,
     private val chatService: ChatService,
     private val userService: UserService,

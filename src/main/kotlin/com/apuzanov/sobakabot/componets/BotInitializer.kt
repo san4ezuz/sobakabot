@@ -25,6 +25,7 @@ class BotInitializer(
     private val updatesManager: UpdatesManager
 ) {
     private val scope = CoroutineScope(Dispatchers.Default)
+
     companion object {
         private val log = LogManager.getLogger()
     }
@@ -78,7 +79,9 @@ class BotInitializer(
         runBlocking<Unit> {
             try {
                 val oldCommands = requestExecutor.getMyCommands()
+                log.info("Old commands: " + oldCommands.toString())
                 val newCommands = updatesManager.getCommands()
+                log.info("New commands: " + newCommands.toString())
                 if (oldCommands != newCommands) {
                     requestExecutor.setMyCommands(newCommands)
                 }

@@ -1,14 +1,14 @@
-package com.github.djaler.evilbot.service
+package com.apuzanov.sobakabot.service
 
 import com.apuzanov.sobakabot.model.GetOrCreateResult
-import com.github.djaler.evilbot.entity.Chat
-import com.github.djaler.evilbot.entity.User
-import com.github.djaler.evilbot.entity.UserChatStatistic
-import com.github.djaler.evilbot.enums.UserGender
-import com.github.djaler.evilbot.repository.UserRepository
-import com.github.djaler.evilbot.repository.UserStatisticRepository
-import com.github.djaler.evilbot.utils.userId
-import com.github.djaler.evilbot.utils.usernameOrName
+import com.apuzanov.sobakabot.entity.Chat
+import com.apuzanov.sobakabot.entity.User
+import com.apuzanov.sobakabot.entity.UserChatStatistic
+import com.apuzanov.sobakabot.enums.UserGender
+import com.apuzanov.sobakabot.repository.UserRepository
+import com.apuzanov.sobakabot.repository.UserStatisticRepository
+import com.apuzanov.sobakabot.utils.userId
+import com.apuzanov.sobakabot.utils.usernameOrName
 import dev.inmo.tgbotapi.types.UserId
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

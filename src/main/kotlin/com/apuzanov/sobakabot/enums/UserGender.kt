@@ -1,4 +1,4 @@
-package com.github.djaler.evilbot.enums
+package com.apuzanov.sobakabot.enums
 
 enum class UserGender {
     MALE, FEMALE, IT

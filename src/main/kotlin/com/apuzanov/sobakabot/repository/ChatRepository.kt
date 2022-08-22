@@ -1,6 +1,6 @@
-package com.github.djaler.evilbot.repository
+package com.apuzanov.sobakabot.repository
 
-import com.github.djaler.evilbot.entity.Chat
+import com.apuzanov.sobakabot.entity.Chat
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface ChatRepository : JpaRepository<Chat, Short> {

@@ -1,4 +1,4 @@
-package com.github.djaler.evilbot.entity
+package com.apuzanov.sobakabot.entity
 
 import javax.persistence.*
 

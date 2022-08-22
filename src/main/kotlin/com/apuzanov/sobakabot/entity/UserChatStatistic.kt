@@ -1,5 +1,6 @@
-package com.github.djaler.evilbot.entity
+package com.apuzanov.sobakabot.entity
 
+import com.apuzanov.sobakabot.entity.User
 import java.time.LocalDateTime
 import javax.persistence.*
 

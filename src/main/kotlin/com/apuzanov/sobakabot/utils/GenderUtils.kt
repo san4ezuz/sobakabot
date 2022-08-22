@@ -1,6 +1,6 @@
-package com.github.djaler.evilbot.utils
+package com.apuzanov.sobakabot.utils
 
-import com.github.djaler.evilbot.enums.UserGender
+import com.apuzanov.sobakabot.enums.UserGender
 
 fun UserGender.getFormByGender(male: String, female: String, it: String) =
     when (this) {

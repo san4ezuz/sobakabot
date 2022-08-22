@@ -1,6 +1,6 @@
-package com.github.djaler.evilbot.entity
+package com.apuzanov.sobakabot.entity
 
-import com.github.djaler.evilbot.enums.UserGender
+import com.apuzanov.sobakabot.enums.UserGender
 import javax.persistence.*
 
 @Entity
