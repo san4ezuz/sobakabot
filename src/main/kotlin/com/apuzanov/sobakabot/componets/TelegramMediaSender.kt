@@ -53,7 +53,7 @@ class TelegramMediaSender(
         }
     }
 
-    private suspend fun <T : MediaContent> sendMedia(
+    suspend fun <T : MediaContent> sendMedia(
         resource: ClassPathResource,
         fileSender: suspend (file: InputFile) -> ContentMessage<T>,
     ) {

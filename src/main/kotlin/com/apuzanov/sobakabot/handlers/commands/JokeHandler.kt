@@ -4,6 +4,8 @@ import com.apuzanov.sobakabot.clients.JokeClient
 import com.apuzanov.sobakabot.handlers.base.CommandHandler
 import com.apuzanov.sobakabot.model.Joke
 import com.apuzanov.sobakabot.utils.asMultipartFile
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.readValue
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.api.send.replyWithPhoto
@@ -18,6 +20,7 @@ import org.springframework.stereotype.Component
 class JokeHandler(
     private val requestsExecutor: RequestsExecutor,
     private val jokeClient: JokeClient,
+    private val objectMapper : ObjectMapper,
     botInfo: ExtendedBot
 ) : CommandHandler(
     botInfo,
@@ -29,9 +32,7 @@ class JokeHandler(
         args: String?
     ) {
         val jokeResponse = jokeClient.getJoke()
-        println(jokeResponse.bodyAsText())
-        val joke: Joke = jokeResponse.body()
-        println(joke)
+        val joke = objectMapper.readValue<Joke>(jokeResponse.bodyAsText())
 
         requestsExecutor.reply(
             message, joke.content

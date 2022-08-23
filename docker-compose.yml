@@ -10,6 +10,9 @@ services:
       bot.env
     links:
       - "db:db"
+    depends_on:
+          - db
+          - cache
 
   db:
     image: postgres
@@ -24,5 +27,12 @@ services:
     volumes:
       - sobaka-data:/var/lib/postgresql/data
 
+  cache:
+    image: "redis"
+    ports:
+      - "6379:6379"
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
 volumes:
   sobaka-data:
