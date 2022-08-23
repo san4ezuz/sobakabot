@@ -4,16 +4,18 @@ import com.apuzanov.sobakabot.componets.TelegramMediaSender
 import com.apuzanov.sobakabot.entity.HandledMediaCache
 import com.apuzanov.sobakabot.handlers.base.CommonMessageHandler
 import com.apuzanov.sobakabot.repository.HandledMediaCacheRepository
-import dev.inmo.micro_utils.common.MPPFile
+import dev.inmo.tgbotapi.bot.RequestsExecutor
+import dev.inmo.tgbotapi.extensions.api.files.downloadFile
+import dev.inmo.tgbotapi.extensions.api.send.withUploadPhotoAction
 import dev.inmo.tgbotapi.extensions.utils.asFromUser
-import dev.inmo.tgbotapi.extensions.utils.asMediaContent
 import dev.inmo.tgbotapi.extensions.utils.asPhotoContent
+import dev.inmo.tgbotapi.requests.get.GetFile
 import dev.inmo.tgbotapi.types.media.toTelegramMediaPhoto
 import dev.inmo.tgbotapi.types.message.abstracts.CommonMessage
 import org.apache.logging.log4j.LogManager
 import org.springframework.core.io.ClassPathResource
 import org.springframework.stereotype.Component
-import java.io.FileInputStream
+import org.springframework.util.DigestUtils
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -21,7 +23,8 @@ import java.time.format.DateTimeFormatter
 @Component
 class PhotoHandler(
     private val handledMediaCacheRepository: HandledMediaCacheRepository,
-    private val telegramMediaSender: TelegramMediaSender
+    private val telegramMediaSender: TelegramMediaSender,
+    private val requestsExecutor: RequestsExecutor,
 ) : CommonMessageHandler() {
 
     companion object {
@@ -35,9 +38,10 @@ class PhotoHandler(
         val photo = message.content.asPhotoContent() ?: return false
         val user = message.asFromUser() ?: return false
         val chatId = message.chat.id
-        val photoId = photo.media.fileUniqueId
-
-        val cache = handledMediaCacheRepository.findByFileIdAndChatId(photoId, chatId.toString());
+        val fileId = photo.media.fileId;
+        val byteArray = requestsExecutor.downloadFile(fileId)
+        val digest = DigestUtils.md5DigestAsHex(byteArray)
+        val cache = handledMediaCacheRepository.findByFileIdAndChatId(digest, chatId.toString());
         if (cache != null) {
             val text = "Я собак, сожаю картошку!\n" +
                     "Первый раз эту картошку посадил: " +
@@ -55,7 +59,7 @@ class PhotoHandler(
                 HandledMediaCache(
                     chatId.toString(),
                     user.user.id.toString(),
-                    photoId,
+                    digest,
                     addedDateTime
                 )
             )

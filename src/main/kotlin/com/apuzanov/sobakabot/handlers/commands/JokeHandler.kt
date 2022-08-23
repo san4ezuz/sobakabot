@@ -33,7 +33,6 @@ class JokeHandler(
     ) {
         val jokeResponse = jokeClient.getJoke()
         val joke = objectMapper.readValue<Joke>(jokeResponse.bodyAsText())
-
         requestsExecutor.reply(
             message, joke.content
         )

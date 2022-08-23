@@ -1,0 +1,12 @@
+spring:
+  redis:
+    host: cache
+  cache:
+    redis:
+      time-to-live: PT1H
+cache:
+  durations:
+    fixerLatestRates: PT1H
+    fixerHistoricalRates: P1D
+    locations: P30D
+    locationTimezones: P1D

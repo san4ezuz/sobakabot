@@ -22,7 +22,7 @@ class FixerClient(
 
         return cached(cache, "rates") {
             httpClient.get("https://api.apilayer.com/fixer/latest") {
-                parameter("access_key", fixerApiProperties.key)
+                parameter("apikey", fixerApiProperties.key)
             }.body<LatestRates>().rates
         }
     }
@@ -32,7 +32,7 @@ class FixerClient(
 
         return cached(cache, date) {
             httpClient.get("https://api.apilayer.com/fixer/$date") {
-                parameter("access_key", fixerApiProperties.key)
+                parameter("apikey", fixerApiProperties.key)
             }.body<HistoricalRates>().rates
         }
     }
