@@ -21,7 +21,7 @@ class MessageScheduler(
 
     companion object {
         private val log = LogManager.getLogger()
-        private const val CHAT_ID: Long = -693241267
+        private const val CHAT_ID: Long = -362302940
 
     }
 
@@ -29,7 +29,6 @@ class MessageScheduler(
     @Scheduled(cron = "0 0 9 ? * MON", zone = "Europe/Moscow")
     fun morningMessageWithMemeMon() {
         runBlocking {
-            log.info("Мем в понедельник")
             val meme = getMemeByDay("monday")
             telegramMediaSender.sendMedia(meme) { file ->
                 requestsExecutor.sendPhoto(ChatId(CHAT_ID), file, "Доброе утро, RESPECT! Всем хорошего дня!")
@@ -37,10 +36,9 @@ class MessageScheduler(
         }
     }
 
-    @Scheduled(cron = "0 0/5 * ? * TUE", zone = "Europe/Moscow")
+    @Scheduled(cron = "0 0 9 ? * TUE", zone = "Europe/Moscow")
     fun morningMessageWithMemeTue() {
         runBlocking {
-            log.info("Мем во вторник")
             val meme = getMemeByDay("tuesday")
             telegramMediaSender.sendMedia(meme) { file ->
                 requestsExecutor.sendPhoto(ChatId(CHAT_ID), file, "Доброе утро, RESPECT! Всем хорошего дня!")
@@ -51,7 +49,6 @@ class MessageScheduler(
     @Scheduled(cron = "0 0 9 ? * WED", zone = "Europe/Moscow")
     fun morningMessageWithMemeWed() {
         runBlocking {
-            log.info("Мем в среду")
             val meme = getMemeByDay("wednesday")
             telegramMediaSender.sendMedia(meme) { file ->
                 requestsExecutor.sendPhoto(ChatId(CHAT_ID), file, "IT'S WEEEEDNSDAY MY DUUUDDEES!")
@@ -63,7 +60,6 @@ class MessageScheduler(
     @Scheduled(cron = "0 0 9 ? * THU", zone = "Europe/Moscow")
     fun morningMessageWithMemeThu() {
         runBlocking {
-            log.info("Мем в четверг")
             val meme = getMemeByDay("thursday")
             telegramMediaSender.sendMedia(meme) { file ->
                 requestsExecutor.sendPhoto(ChatId(CHAT_ID), file, "Доброе утро, RESPECT! Всем хорошего дня!")
@@ -74,7 +70,6 @@ class MessageScheduler(
     @Scheduled(cron = "0 0 9 ? * FRI", zone = "Europe/Moscow")
     fun morningMessageWithMemeFri() {
         runBlocking {
-            log.info("Мем в пятницу")
             val meme = getMemeByDay("friday")
             telegramMediaSender.sendMedia(meme) { file ->
                 requestsExecutor.sendPhoto(ChatId(CHAT_ID), file, "Доброе утро, RESPECT! Всем хорошего дня!")
@@ -85,7 +80,6 @@ class MessageScheduler(
     @Scheduled(cron = "0 0 9 ? * SAT", zone = "Europe/Moscow")
     fun morningMessageWithMemeSat() {
         runBlocking {
-            log.info("Мем в субботу")
             val meme = getMemeByDay("saturday")
             telegramMediaSender.sendMedia(meme) { file ->
                 requestsExecutor.sendPhoto(ChatId(CHAT_ID), file, "Доброе утро, RESPECT! Всем хорошего дня!")
@@ -96,7 +90,6 @@ class MessageScheduler(
     @Scheduled(cron = "0 0 9 ? * SUN", zone = "Europe/Moscow")
     fun morningMessageWithMemeSun() {
         runBlocking {
-            log.info("Мем в воскресенье")
             val meme = getMemeByDay("sunday")
             telegramMediaSender.sendMedia(meme) { file ->
                 requestsExecutor.sendPhoto(ChatId(CHAT_ID), file, "Доброе утро, RESPECT! Всем хорошего дня!")
