@@ -41,6 +41,7 @@ class PhotoHandler(
         val fileId = photo.media.fileId;
         val byteArray = requestsExecutor.downloadFile(fileId)
         val digest = DigestUtils.md5DigestAsHex(byteArray)
+        log.info("Digest: $digest")
         val cache = handledMediaCacheRepository.findByFileIdAndChatId(digest, chatId.toString());
         if (cache != null) {
             val text = "Я собак, сожаю картошку!\n" +

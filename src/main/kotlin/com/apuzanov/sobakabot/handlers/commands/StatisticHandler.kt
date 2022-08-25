@@ -4,7 +4,6 @@ import com.apuzanov.sobakabot.handlers.base.CommandHandler
 import com.apuzanov.sobakabot.service.ChatService
 import com.apuzanov.sobakabot.service.UserService
 import com.apuzanov.sobakabot.utils.getForm
-import com.apuzanov.sobakabot.utils.getFormByGender
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.reply
 import dev.inmo.tgbotapi.extensions.utils.asFromUserMessage
@@ -39,7 +38,7 @@ class StatisticHandler(
         if (statistic == null) {
             requestsExecutor.reply(
                 message,
-                "Ты не ${userEntity.gender.getFormByGender("писал", "писала", "писало")} ещё ничего, алло",
+                "Ты не писал ещё ничего, алло",
             )
             return
         }
@@ -48,7 +47,7 @@ class StatisticHandler(
 
         requestsExecutor.reply(
             message,
-            "Ты ${userEntity.gender.getFormByGender("написал", "написала", "написало")} $count никому не ${
+            "Ты написал $count никому не ${
                 count.getForm(
                     "нужное сообщение",
                     "нужных сообщения",
