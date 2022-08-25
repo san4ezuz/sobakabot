@@ -1,9 +1,6 @@
 package com.apuzanov.sobakabot
 
-import com.apuzanov.sobakabot.config.CacheProperties
-import com.apuzanov.sobakabot.config.FixerApiProperties
-import com.apuzanov.sobakabot.config.TelegramProperties
-import com.apuzanov.sobakabot.config.VKCloudApiProperties
+import com.apuzanov.sobakabot.config.*
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
@@ -17,7 +14,8 @@ import org.springframework.scheduling.annotation.EnableScheduling
     TelegramProperties::class,
     VKCloudApiProperties::class,
     FixerApiProperties::class,
-    CacheProperties::class
+    CacheProperties::class,
+    LocationiqApiProperties::class
 )
 class SobakabotApplication
 
