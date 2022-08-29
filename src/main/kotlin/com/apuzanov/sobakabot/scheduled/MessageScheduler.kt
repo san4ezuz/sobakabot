@@ -21,7 +21,7 @@ class MessageScheduler(
 
     companion object {
         private val log = LogManager.getLogger()
-        private const val CHAT_ID: Long = -362302940
+        private const val CHAT_ID: Long = -1001584023709
 
     }
 

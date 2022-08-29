@@ -6,6 +6,7 @@ import com.apuzanov.sobakabot.service.DigestService
 import com.apuzanov.sobakabot.utils.asMultipartFile
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.send.media.sendAnimation
+import dev.inmo.tgbotapi.extensions.api.send.media.sendAudio
 import dev.inmo.tgbotapi.extensions.api.send.media.sendPhoto
 import dev.inmo.tgbotapi.requests.abstracts.InputFile
 import dev.inmo.tgbotapi.requests.abstracts.toInputFile
@@ -29,6 +30,16 @@ class TelegramMediaSender(
     ) {
         sendMedia(resource) { file ->
             requestsExecutor.sendPhoto(chatId, file, replyToMessageId = replyTo)
+        }
+    }
+
+    suspend fun sendAudio(
+        chatId: ChatIdentifier,
+        resource: ClassPathResource,
+        replyTo: MessageIdentifier?
+    ) {
+        sendMedia(resource) { file ->
+            requestsExecutor.sendAudio(chatId, file, replyToMessageId = replyTo)
         }
     }
 
