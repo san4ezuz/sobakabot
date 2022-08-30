@@ -6,16 +6,8 @@ import com.apuzanov.sobakabot.handlers.base.CommonMessageHandler
 import com.apuzanov.sobakabot.repository.HandledMediaCacheRepository
 import dev.inmo.tgbotapi.bot.RequestsExecutor
 import dev.inmo.tgbotapi.extensions.api.files.downloadFile
-import dev.inmo.tgbotapi.extensions.api.files.downloadFileToTemp
-import dev.inmo.tgbotapi.extensions.api.send.withAction
-import dev.inmo.tgbotapi.extensions.api.send.withUploadPhotoAction
-import dev.inmo.tgbotapi.extensions.utils.asContentMessage
 import dev.inmo.tgbotapi.extensions.utils.asFromUser
 import dev.inmo.tgbotapi.extensions.utils.asPhotoContent
-import dev.inmo.tgbotapi.extensions.utils.asPollContent
-import dev.inmo.tgbotapi.extensions.utils.extensions.raw.poll
-import dev.inmo.tgbotapi.requests.get.GetFile
-import dev.inmo.tgbotapi.types.media.toTelegramMediaPhoto
 import dev.inmo.tgbotapi.types.message.abstracts.CommonMessage
 import org.apache.logging.log4j.LogManager
 import org.springframework.core.io.ClassPathResource
@@ -25,11 +17,12 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
+
 @Component
 class PhotoHandler(
     private val handledMediaCacheRepository: HandledMediaCacheRepository,
     private val telegramMediaSender: TelegramMediaSender,
-    private val requestsExecutor: RequestsExecutor,
+    private val requestsExecutor: RequestsExecutor
 ) : CommonMessageHandler() {
 
     companion object {
