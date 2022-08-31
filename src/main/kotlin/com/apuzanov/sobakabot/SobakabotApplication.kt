@@ -15,7 +15,8 @@ import org.springframework.scheduling.annotation.EnableScheduling
     VKCloudApiProperties::class,
     FixerApiProperties::class,
     CacheProperties::class,
-    LocationiqApiProperties::class
+    LocationiqApiProperties::class,
+    WeatherProperties::class
 )
 class SobakabotApplication
 

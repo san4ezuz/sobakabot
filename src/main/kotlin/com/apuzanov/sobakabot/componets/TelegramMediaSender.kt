@@ -33,6 +33,15 @@ class TelegramMediaSender(
         }
     }
 
+    suspend fun sendPhoto(
+        chatId: ChatIdentifier,
+        resource: ClassPathResource
+    ) {
+        sendMedia(resource) { file ->
+            requestsExecutor.sendPhoto(chatId, file)
+        }
+    }
+
     suspend fun sendAudio(
         chatId: ChatIdentifier,
         resource: ClassPathResource,
